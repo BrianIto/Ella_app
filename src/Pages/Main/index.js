@@ -1,6 +1,16 @@
 import React from 'react';
-import { View} from 'react-native';
+import {View, StyleSheets, Text} from 'react-native';
 
-export default function Main(){
-    return <View />;
+const Main = props => {
+    return (
+        <View>
+            <Text>Página Main</Text>
+        </View>
+    )
 }
+
+const styles = StyleSheets.create({
+    
+});
+
+export default Main;

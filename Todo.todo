@@ -1,0 +1,16 @@
+Projeto Ella:
+    Projeto no XD -> 
+    ☐ O projeto é um editor de ciclo menstrual
+    ☐ Deve funcionar online e offline
+    Porque não só offline? Poderíamos ter dados vinculados a conta etc. Pode usar-se só AsyncStorage nesse caso, já que os dados não são 
+    tão complexos.
+    ☐ Deve ter um sistema de Push Notification para gerar notificações. (firebase te chamam);
+    ☐ FRONTEND
+        ☐ Fazer Frontend do Calendário
+        ☐ Fazer Frontend da Tela de Login
+    ☐ Banco de Dados
+    Se utilizará o BD do Firebase
+        ☐ Fazer modelo de banco de dados
+        ☐ Fazer o banco de dados lá no geral
+    ☐ Backend
+        ☐ Utilizar o SDK do Firebase para fazer acesso ao backend diretamente sem necessidade de um servidor Node.js
