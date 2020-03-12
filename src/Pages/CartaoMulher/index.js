@@ -57,6 +57,7 @@ const index = () => {
                 placeholder={"Informe as doenças crônicas que possui."}
                 onChange={text => setCartaoMulher({ ...formCartaoMulher, doencasCronicas: text })}
             />
+            <Button>Confirmar</Button>
         </View>
     )
 }
