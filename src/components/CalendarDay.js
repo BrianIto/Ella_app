@@ -6,7 +6,7 @@ const CalendarDay = props => {
     return (
         <View>
             {/* TODO: Parte do dia do calendário aqui, INCOMPLETO */}
-            <Text></Text>
+            <Text>{props.item.key}</Text>
         </View>
     )
 }
