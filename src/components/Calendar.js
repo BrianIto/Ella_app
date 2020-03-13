@@ -6,9 +6,6 @@ import moment from 'moment';
 const Calendar = props => {
 
     const weekDays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
-    const [monthDays, setMonthDays] = React.useState([]);
-    const data = [{key: 'A'}, {key: 'B'}, {key: 'C'}, {key:'D'},
-        { key: 'A' }, { key: 'B' }, { key: 'C' }, { key: 'D' }];
 
     const inicializaMatrizDeDias = () => {
         let matrix = new Array(5);
@@ -28,17 +25,15 @@ const Calendar = props => {
                 }
             }
         }
+        return matrix;
     };
 
+    let [matrizMes, setMatrizMes] = React.useState([[], []]);
+
     React.useEffect(() => {
-        //Popula o Array monthDays com os dias do mês atual
-        let daysArray = [];
-        let day = moment(new Date()).startOf('month');
-        while (day.isSame(new Date(), 'month')) {
-            daysArray.push(day.add(1, 'day'));
-        }
+        setMatrizMes(inicializaMatrizDeDias());
         setMonthDays(daysArray);
-    });
+    }, [props]);
 
     return (
         <View>
@@ -51,7 +46,7 @@ const Calendar = props => {
                 ))}
             </View>
             {/* Parte real do Calendário */}
-            <View>
+            <View style={styles.calendar}>
                 {/** Como vai funcionar:
                  *    D   S   T   Q   Q   S   S (FEITO)
                  *        1   2   3   4   5   6
@@ -60,11 +55,27 @@ const Calendar = props => {
                  *   22  23  24  25  26  27  28
                  *   29 30
                  */}
-                 <View style={styles.week}>
-                     {
-                        map   
-                     }
-                 </View>
+                 {matrizMes.map(semana => {
+                     return (
+                        <View style={styles.week}>
+                            {
+                                semana.map(day => {
+                                    if (day === 0) {
+                                        return (
+                                            <View />
+                                        );
+                                    } else {
+                                        return (
+                                            <View style={ styles.day }>
+                                                <Text>{day}</Text>
+                                            </View>
+                                        );
+                                    }
+                                })
+                            }
+                        </View>
+                     );
+                 })}
             </View>
         </View>
     )
@@ -76,5 +87,11 @@ const styles = StyleSheet.create({
     diasDaSemanaContainer: {
         flexDirection: 'row',
     },
-    week: {},
+    week: {
+        flexDirection: 'row',
+    },
+    calendar: {
+        flexDirection: 'column',
+    },
+    day: {},
 });
