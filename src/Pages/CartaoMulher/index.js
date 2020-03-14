@@ -1,9 +1,10 @@
 import React from 'react'
 import InputText from '../../components/InputText'
+import Button from '../../components/Button'
 import { StyleSheet, Text, View } from 'react-native'
 
-const index = () => {
-    
+const CartaoMulher = () => {
+
     const [formCartaoMulher, setCartaoMulher] = React.useState({
         nome: '',
         idade: 0,
@@ -16,8 +17,8 @@ const index = () => {
     })
 
     return (
-        <View>
-            <InputText 
+        <View style={styles.container}>
+            <InputText
                 label={"Nome"}
                 placeholder={"Informe aqui o seu nome"}
                 onChange={text => setCartaoMulher({...formCartaoMulher, nome: text})}
@@ -62,6 +63,13 @@ const index = () => {
     )
 }
 
-export default index
+const styles = StyleSheet.create({
+    container: {
+        marginRight: 15,
+        marginTop: 25,
+        marginLeft: 15,
+    }
+})
 
-const styles = StyleSheet.create({})
+export default CartaoMulher
+

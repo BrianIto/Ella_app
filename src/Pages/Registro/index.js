@@ -3,7 +3,7 @@ import InputText from '../../components/InputText'
 import Button from '../../components/Button'
 import { View, Text } from 'react-native'
 
-export const RegisterPage = () => {
+export const RegisterPage = props => {
     return (
         <View>
             <InputText label="Nome"/>
