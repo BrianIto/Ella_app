@@ -5,9 +5,10 @@ import PropTypes from 'prop-types'
 const InputText = props => {
     return (
         <View>
-            <Text>{props.label}</Text>
+            <Text style={ styles.label }>{props.label}</Text>
             <TextInput
-                onChange={props.onChange} 
+                style={ styles.input }
+                onChange={props.onChange}
                 placeholder={props.placeholder}/>
         </View>
     )
@@ -21,4 +22,13 @@ InputText.propTypes = {
 
 export default InputText;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    label: {
+        marginTop: 5,
+        color: "#333",
+    },
+    input: {
+        borderBottomColor: '#777',
+        borderBottomWidth: 1,
+    }
+})
