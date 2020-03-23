@@ -4,6 +4,7 @@ import Calendar from '../../components/Calendar';
 import Button from '../../components/Button';
 
 const Main = props => {
+
     return (
         <View style={styles.container}>
             <Calendar />

@@ -1,6 +1,6 @@
 import React from 'react'
 import CalendarDay from './CalendarDay'
-import { StyleSheet, Text, View, FlatList } from 'react-native'
+import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
 import moment from 'moment/min/moment-with-locales';
 
 const Calendar = props => {
@@ -61,11 +61,7 @@ const Calendar = props => {
                                         );
                                     } else {
                                         return (
-                                            <View style={ styles.day }>
-                                                <Text style={[styles.text, day.hoje ? styles.hoje : {}]}>
-                                                    {day.dia}
-                                                </Text>
-                                            </View>
+                                                <CalendarDay date={day}/>
                                         );
                                     }
                                 })

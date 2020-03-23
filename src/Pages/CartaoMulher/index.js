@@ -2,9 +2,12 @@ import React from 'react'
 import InputText from '../../components/InputText'
 import Button from '../../components/Button'
 import { StyleSheet, Text, View } from 'react-native'
+import {connect} from "react-redux";
+import UsuarioDAO from "../../DAOS/usuarioDAO";
 
-const CartaoMulher = () => {
+const CartaoMulher = props => {
 
+    const [loading, setLoading] = React.useState(false);
     const [formCartaoMulher, setCartaoMulher] = React.useState({
         nome: '',
         idade: 0,
@@ -14,12 +17,24 @@ const CartaoMulher = () => {
         peso: 0,
         cicloMenstrual: 0,
         doencasCronicas: '',
-    })
+    });
+
+    const onSubmit = () => {
+        setLoading(true);
+        UsuarioDAO.updateUsuario(props.userLogged.id, formCartaoMulher).then(() => {
+            alert("Atualizado com sucesso!");
+            setLoading(false)
+        }).catch(e => {
+            alert(e);
+            setLoading(false)
+        });
+    }
 
     return (
         <View style={styles.container}>
             <InputText
                 label={"Nome"}
+                defaultValue={props.userLogged.nome}
                 placeholder={"Informe aqui o seu nome"}
                 onChange={text => setCartaoMulher({...formCartaoMulher, nome: text})}
             />
@@ -54,11 +69,11 @@ const CartaoMulher = () => {
                 onChange={text => setCartaoMulher({ ...formCartaoMulher, cicloMenstrual: text })}
             />
             <InputText
-                label={"Doenças Crônicas"}
+                label={"Possui doenças como diabetes e hipertensão? Quais?"}
                 placeholder={"Informe as doenças crônicas que possui."}
                 onChange={text => setCartaoMulher({ ...formCartaoMulher, doencasCronicas: text })}
             />
-            <Button>Confirmar</Button>
+            <Button onPress={onSubmit} loading={loading}>Confirmar</Button>
         </View>
     )
 }
@@ -71,5 +86,9 @@ const styles = StyleSheet.create({
     }
 })
 
-export default CartaoMulher
+const mapStateToProps = state => ({
+    userLogged: state.general.userLogged,
+})
+
+export default connect(mapStateToProps)(CartaoMulher);
 

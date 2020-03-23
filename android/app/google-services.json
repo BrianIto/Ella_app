@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "333086831301",
+    "firebase_url": "https://ella-9b329.firebaseio.com",
+    "project_id": "ella-9b329",
+    "storage_bucket": "ella-9b329.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333086831301:android:1d2f8440fc671230a7b6ac",
+        "android_client_info": {
+          "package_name": "com.ella"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "333086831301-mhmv82a2vh4ec3h3gs0vlqm2jrke9t50.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhHY1nnmoCnhEvCxQ40AW1KrnQq6EnM5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "333086831301-mhmv82a2vh4ec3h3gs0vlqm2jrke9t50.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

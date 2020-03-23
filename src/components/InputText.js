@@ -8,7 +8,8 @@ const InputText = props => {
             <Text style={ styles.label }>{props.label}</Text>
             <TextInput
                 style={ styles.input }
-                onChange={props.onChange}
+                value={props.defaultValue}
+                onChangeText={props.onChangeText}
                 placeholder={props.placeholder}/>
         </View>
     )
@@ -16,8 +17,9 @@ const InputText = props => {
 
 InputText.propTypes = {
     placeholder: PropTypes.string,
-    onChange: PropTypes.func,
+    onChangeText: PropTypes.func,
     label: PropTypes.string.isRequired,
+    defaultValue: PropTypes.string,
 };
 
 export default InputText;

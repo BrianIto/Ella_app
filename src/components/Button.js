@@ -7,13 +7,14 @@ const Button = props => {
         <TouchableOpacity
             onPress={props.onPress}
             style={styles.button}>
-            <Text style={styles.text}>{props.children}</Text>
+            <Text style={styles.text}>{props.loading ? "Carregando" : props.children}</Text>
         </TouchableOpacity>
     )
 }
 
 Button.propTypes = {
     onPress: PropTypes.func,
+    loading: PropTypes.bool,
 };
 
 export default Button;

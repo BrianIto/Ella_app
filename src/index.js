@@ -4,14 +4,19 @@ import React from 'react';
 
 import './confg/ReactotronConfg';
 import Routes from './routes'
+import {Provider} from "react-redux";
+import firebase from '@react-native-firebase/app';
+import {Store} from "./redux/store";
+import UsuarioDAO from "./DAOS/usuarioDAO";
 
+const App = () => {
 
-
-export default function App() {
-    return(
-        <>
+    return (
+        <Provider store={Store}>
             <Routes />
-        </>
+        </Provider>
     );
 }
+
+export default App;
 

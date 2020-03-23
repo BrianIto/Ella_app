@@ -1,7 +1,8 @@
 import React from 'react'
 import InputText from '../../components/InputText'
 import Button from '../../components/Button'
-import { View, Text } from 'react-native'
+import { View, Text, Alert } from 'react-native'
+import UsuarioDAO from "../../DAOS/usuarioDAO";
 
 export const RegisterPage = () => {
 
@@ -15,13 +16,20 @@ export const RegisterPage = () => {
 
     const campos = ['nome', 'email', 'cpf', 'senha', 'confirmSenha'];
 
-    const onSubmit = () => {
+    const onSubmit = async () => {
         let passa = true;
         campos.forEach(campo => {if (data[campo] === '') { passa = false }});
         if (!passa) {
-            alert("Por favor, informe todos os campos.")
-        } else {
-            //Manda pro Banco de Dados.
+            alert("Por favor, informe todos os campos.");
+        } else if (data.confirmSenha !== data.senha) {
+            alert ("As senhas não batem");
+            // Manda pro Banco de Dados.
+            try {
+                await UsuarioDAO.registerUsuario(data);
+                Alert.alert("Bem-vinda!", "Você foi adicionada com sucesso!");
+            } catch (e) {
+                Alert.alert("Erro...", "Ocorreu um erro em nossos servidores. Erro: "+e);
+            }
         }
     };
 
@@ -32,7 +40,9 @@ export const RegisterPage = () => {
             <InputText onChangeText={text => setData({...data, cpf: text})} label="CPF" />
             <InputText onChangeText={text => setData({...data, senha: text})} label="Senha" />
             <InputText onChangeText={text => setData({...data, confirmSenha: text})} label="Confirmar Senha" />
-            <Button>Confirmar</Button>
+            <Button onPress={onSubmit}>Confirmar</Button>
         </View>
     )
 }
+
+export default RegisterPage;
