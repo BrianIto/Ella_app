@@ -18,6 +18,9 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.6",
+    "@react-native-firebase/app": "^6.3.4",
+    "@react-native-firebase/auth": "^6.3.4",
+    "@react-native-firebase/firestore": "^6.3.4",
     "firebase": "^7.11.0",
     "moment": "^2.24.0",
     "react": "16.9.0",
@@ -28,7 +31,9 @@
     "react-native-screens": "^2.0.0-beta.13",
     "react-navigation": "^4.2.1",
     "react-navigation-stack": "^2.1.1",
+    "react-redux": "^7.2.0",
     "reactotron-react-native": "^4.0.3",
+    "redux": "^4.0.5",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
