@@ -26,9 +26,12 @@ const Login = props => {
         try {
             const {cpf, senha} = loginData;
             const user = await UsuarioDAO.login(cpf, senha);
-            alert(JSON.stringify(user));
-            props.setUserLogged(user);
-            props.navigation.navigate('Main');
+            if (user) {
+                props.setUserLogged(user);
+                props.navigation.navigate('Main');
+            } else {
+                Alert.alert("Usuário ou senha inválidos");
+            }
         } catch(e) {
             Alert.alert("Erro", "Usuário ou senha inválidos "+e);
         }

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const InputText = props => {
     return (
-        <View>
+        <View style={props.style}>
             <Text style={ styles.label }>{props.label}</Text>
             <TextInput
                 style={ styles.input }

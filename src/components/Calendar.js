@@ -61,7 +61,7 @@ const Calendar = props => {
                                         );
                                     } else {
                                         return (
-                                                <CalendarDay date={day}/>
+                                                <CalendarDay onTouchDay={props.onTouchDay} date={day}/>
                                         );
                                     }
                                 })

@@ -1,7 +1,7 @@
 import React from 'react'
 import InputText from '../../components/InputText'
 import Button from '../../components/Button'
-import { StyleSheet, Text, View } from 'react-native'
+import {StyleSheet, Text, View, ScrollView} from 'react-native'
 import {connect} from "react-redux";
 import UsuarioDAO from "../../DAOS/usuarioDAO";
 
@@ -31,50 +31,59 @@ const CartaoMulher = props => {
     }
 
     return (
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={{marginHorizontal: 15, paddingBottom: 20}}>
+            <Text style={styles.h1}>Informações</Text>
             <InputText
                 label={"Nome"}
                 defaultValue={props.userLogged.nome}
                 placeholder={"Informe aqui o seu nome"}
                 onChange={text => setCartaoMulher({...formCartaoMulher, nome: text})}
             />
-            <InputText
-                label={"Idade"}
-                placeholder={"Informe aqui o sua Idade"}
-                onChange={text => setCartaoMulher({ ...formCartaoMulher, idade: text })}
-            />
-            <InputText
-                label={"Data de Nascimento"}
-                placeholder={"dd/mm/aaaa"}
-                onChange={text => setCartaoMulher({ ...formCartaoMulher, dataNascimento: text })}
-            />
+            <View style={{flexDirection: 'row'}}>
+                <InputText
+                    style={{flex: 1, marginRight: 15}}
+                    label={"Idade"}
+                    placeholder={"Sua idade"}
+                    onChange={text => setCartaoMulher({...formCartaoMulher, idade: text})}
+                />
+                <InputText
+                    style={{flex: 1}}
+                    label={"Data de Nascimento"}
+                    placeholder={"dd/mm/aaaa"}
+                    onChange={text => setCartaoMulher({...formCartaoMulher, dataNascimento: text})}
+                />
+            </View>
             <InputText
                 label={"Cartão do SUS"}
                 placeholder={"Ex: 8941782013"}
-                onChange={text => setCartaoMulher({ ...formCartaoMulher, cartaoSUS: text })}
+                onChange={text => setCartaoMulher({...formCartaoMulher, cartaoSUS: text})}
             />
-            <InputText
-                label={"Altura"}
-                placeholder={"Informe aqui sua altura em centímetros"}
-                onChange={text => setCartaoMulher({ ...formCartaoMulher, altura: text })}
-            />
-            <InputText
-                label={"Peso"}
-                placeholder={"Informe aqui seu peso em kg."}
-                onChange={text => setCartaoMulher({ ...formCartaoMulher, peso: text })}
-            />
+            <View style={{flexDirection: 'row'}}>
+                <InputText
+                    style={{flex: 1, marginRight: 15}}
+                    label={"Altura"}
+                    placeholder={"Altura em cm"}
+                    onChange={text => setCartaoMulher({...formCartaoMulher, altura: text})}
+                />
+                <InputText
+                    style={{flex: 1}}
+                    label={"Peso"}
+                    placeholder={"Peso em kg."}
+                    onChange={text => setCartaoMulher({...formCartaoMulher, peso: text})}
+                />
+            </View>
             <InputText
                 label={"Ciclo Menstrual"}
                 placeholder={"Informe aqui a duração do seu ciclo em dias."}
-                onChange={text => setCartaoMulher({ ...formCartaoMulher, cicloMenstrual: text })}
+                onChange={text => setCartaoMulher({...formCartaoMulher, cicloMenstrual: text})}
             />
             <InputText
                 label={"Possui doenças como diabetes e hipertensão? Quais?"}
                 placeholder={"Informe as doenças crônicas que possui."}
-                onChange={text => setCartaoMulher({ ...formCartaoMulher, doencasCronicas: text })}
+                onChange={text => setCartaoMulher({...formCartaoMulher, doencasCronicas: text})}
             />
             <Button onPress={onSubmit} loading={loading}>Confirmar</Button>
-        </View>
+        </ScrollView>
     )
 }
 
@@ -83,6 +92,14 @@ const styles = StyleSheet.create({
         marginRight: 15,
         marginTop: 25,
         marginLeft: 15,
+    },
+    h1: {
+        marginTop: 15,
+        fontSize: 24,
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+        textAlign: 'center',
+        color: '#000',
     }
 })
 
